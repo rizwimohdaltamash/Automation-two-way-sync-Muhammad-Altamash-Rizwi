@@ -4,6 +4,20 @@
 
 Automatically keep leads and tasks in sync across platforms. When a new lead is added to Google Sheets, a corresponding Trello card is created. When a card's status changes in Trello, the lead's status updates in Google Sheets.
 
+## 🎥 Video Demonstration
+
+Watch the complete walkthrough and demonstration of the two-way sync system in action:
+
+**[▶️ View Video Demo](https://drive.google.com/file/d/1An52UBx6sa-tXX9Uek-zRztsCsxT4GT6/view?usp=drivesdk)**
+
+The video covers:
+- Complete setup process (Google Sheets API, Service Account, Trello API)
+- First sync execution with sample data
+- Two-way sync demonstration (Sheets → Trello and Trello → Sheets)
+- Drag-and-drop status updates in Trello
+- Idempotency and error handling
+- Real-time synchronization examples
+
 ## 🎯 Features
 
 - **Two-way sync**: Changes in Google Sheets sync to Trello, and status updates in Trello sync back to Sheets
