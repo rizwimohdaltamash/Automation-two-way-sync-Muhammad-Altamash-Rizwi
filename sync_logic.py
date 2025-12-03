@@ -51,15 +51,17 @@ class SyncEngine:
         }
         
         try:
-            # FLOW A: Lead → Task (Sheets to Trello)
-            logger.info("\n[FLOW A] Lead → Task: Syncing Google Sheets → Trello")
-            logger.info("-" * 70)
-            self._sync_leads_to_tasks()
-            
-            # FLOW B: Task → Lead (Trello to Sheets)
+            # FLOW B: Task → Lead (Trello to Sheets) - RUN FIRST!
+            # This ensures Trello status changes update the Sheet BEFORE Flow A runs
             logger.info("\n[FLOW B] Task → Lead: Syncing Trello → Google Sheets")
             logger.info("-" * 70)
             self._sync_tasks_to_leads()
+            
+            # FLOW A: Lead → Task (Sheets to Trello) - RUN SECOND!
+            # Now Flow A syncs the updated Sheet data (including status changes from Flow B)
+            logger.info("\n[FLOW A] Lead → Task: Syncing Google Sheets → Trello")
+            logger.info("-" * 70)
+            self._sync_leads_to_tasks()
             
             # Summary
             logger.info("\n" + "=" * 70)

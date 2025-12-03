@@ -351,3 +351,30 @@ class TaskClient:
         except Exception as e:
             logger.error(f"Error searching for card by lead_id {lead_id}: {e}")
             return None
+    
+    def delete_card(self, card_id: str) -> bool:
+        """
+        Delete a Trello card.
+        
+        Args:
+            card_id: The Trello card ID to delete
+        
+        Returns:
+            True if successful, False otherwise
+        """
+        try:
+            url = f"{self.BASE_URL}/cards/{card_id}"
+            params = self._get_auth_params()
+            
+            response = self._request_wrapper('DELETE', url, params=params)
+            
+            if response.status_code == 200:
+                logger.info(f"✓ Deleted card {card_id}")
+                return True
+            else:
+                logger.error(f"Failed to delete card {card_id}: {response.status_code} {response.text}")
+                return False
+                
+        except Exception as e:
+            logger.error(f"Error deleting card {card_id}: {e}")
+            return False
