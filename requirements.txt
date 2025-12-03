@@ -1,0 +1,21 @@
+# Google Sheets ↔ Trello Two-Way Sync - Requirements
+
+# Core dependencies
+python-dotenv==1.0.0
+google-api-python-client==2.110.0
+google-auth==2.25.2
+google-auth-oauthlib==1.2.0
+google-auth-httplib2==0.2.0
+requests==2.31.0
+
+# Testing dependencies
+pytest==7.4.3
+pytest-cov==4.1.0
+pytest-mock==3.12.0
+responses==0.24.1
+
+# Optional: For scheduled automation
+schedule==1.2.0
+
+# Optional: For enhanced CLI
+colorama==0.4.6
